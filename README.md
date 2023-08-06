@@ -52,17 +52,11 @@ To get started with the Cadabra Big Data System Project, follow the steps outlin
 2. Navigate to the relevant folder for the component you wish to explore.
 3. Follow the instructions provided in the README.md file of each folder to deploy and test the implementation.
 
-## Contributions
-
-Contributions to this project are welcome! If you find any issues or have ideas for improvements, feel free to submit a pull request. Please ensure that you adhere to the coding standards and include appropriate documentation.
 
 ## Acknowledgments
 
 I would like to express gratitude to Stephan Maarek for his exceptional guidance and insights provided in the Udemy course, which served as the foundation for this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
