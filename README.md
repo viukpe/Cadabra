@@ -1,6 +1,6 @@
 # Cadabra Big Data System Project
 
-![Cadabra Big Data System Project](cadabra_project_banner.png)
+![Cadabra Big Data System Project](Cadabra.png)
 
 Welcome to the Cadabra big data system project! This repository contains a collection of AWS cloud documentation that showcase the comprehensive implementations in Cadabra's system, Cadabra is an e-commerce clothing store. These architectures has been carefully designed and built as part of my preparation for the AWS Certified Data Analytics Specialty Examination on 19th August 2023, following the excellent guidance provided by Stephan Maarek's preparation course on Udemy.
 
