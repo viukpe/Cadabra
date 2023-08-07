@@ -1,4 +1,4 @@
-# Order History Functionality - AWS Data Pipeline
+# Order History Functionality
 
 ![ScreenShot](/assets/images/01.png)
 

@@ -1,4 +1,4 @@
-# Product Recommendations - AWS Implementation
+# Product Recommendations
 
 ![ScreenShot](/assets/images/02.png)
 
