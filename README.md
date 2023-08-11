@@ -1,8 +1,10 @@
 # Cadabra Big Data System Project
 
-![Cadabra Big Data System Project](/assets/images/Cadabra.png)
+![Cadabra Big Data System Project](/assets/images/Cadabra_image.png)
 
-Welcome to the Cadabra big data system project! This repository contains a collection of AWS cloud documentation that showcase the comprehensive implementations in Cadabra's system, Cadabra is an e-commerce clothing store. These architectures has been carefully designed and built as part of my preparation for the AWS Certified Data Analytics Specialty Examination on 19th August 2023, following the excellent guidance provided by Stephan Maarek's preparation course on Udemy.
+Welcome to the Cadabra big data system project! This repository contains a collection of AWS cloud documentation that showcase the comprehensive implementations for Cadabra. Cadabra is the name we'll use for our mock e-commerce clothing store. These architectures has been carefully designed and built as part of my preparation for the AWS Certified Data Analytics Specialty Examination, following the excellent guidance provided by Stephan Maarek's preparation course on Udemy.
+
+![Full picture](/assets/images/All.png)
 
 ## Project Overview
 
@@ -10,27 +12,13 @@ The Cadabra Big Data System Project consists of a five-part implementation, each
 
 1. **Order History Functionality:** Implementing data pipelines to capture and analyze order history data using AWS Kinesis, Lambda, and DynamoDB.
 
-2. **Product Recommendations:** Building recommendation systems using AWS Kinesis Analytics and AWS Lambda to provide personalized product recommendations based on user behavior.
+2. **Product Recommendations:** Building recommendation systems using AWS Kinesis and S3 to collect data and use AWS Elastic Map Reduce to provide personalized product recommendations based on user behavior.
 
-3. **Transaction Rate Alarm:** Setting up alarms and notifications for detecting unusual transaction rates using AWS CloudWatch and Lambda.
+3. **Transaction Rate Alarm:** Setting up alarms and notifications for detecting unusual transaction rates using AWS Kinesis, Lambda, and SNS.
 
-4. **Near Real-Time Log Analytics:** Developing a real-time log analytics system using AWS Kinesis, Amazon EMR, and Amazon Athena for immediate data insights.
+4. **Near Real-Time Log Analytics:** Developing a real-time log analytics system using AWS Kinesis, and Amazon OpenSearch for immediate data insights.
 
-5. **Data Warehousing and Visualization:** Creating a data warehousing solution using AWS Redshift and data visualization using AWS QuickSight for in-depth analysis and reporting.
-
-## AWS Services Used
-
-The Cadabra Big Data System Project leverages a range of AWS services to achieve its objectives. These services include, but are not limited to:
-
-- AWS Kinesis: For real-time data streaming and analytics.
-- AWS EC2: To host applications and services.
-- AWS S3: For secure and scalable data storage.
-- AWS Lambda: For serverless computing and event-driven data processing.
-- AWS DynamoDB: For NoSQL database management.
-- AWS QuickSight: For interactive data visualization and business intelligence.
-- Amazon EMR: For processing large-scale data using Apache Hadoop and Apache Spark.
-- Amazon Athena: For serverless query and analysis of data in S3.
-- AWS Redshift: For data warehousing and analytics.
+5. **Data Warehousing and Visualization:** Creating a data warehousing solution using AWS Redshift and S3, and use AWS Glue, Athena, and QuickSight for data visualization, in-depth analysis and reporting.
 
 ## Repository Structure
 
@@ -48,8 +36,7 @@ Each folder contains detailed instructions, code samples, and configuration file
 
 To get started with the Cadabra Big Data System Project, follow the steps outlined below:
 
-1. Clone this repository to your local machine.
-2. Navigate to the relevant folder for the component you wish to explore.
+1. Navigate to the relevant folder for the component you wish to explore.
 3. Follow the instructions provided in the README.md file of each folder to deploy and test the implementation.
 
 

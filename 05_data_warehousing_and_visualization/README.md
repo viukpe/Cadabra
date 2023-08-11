@@ -2,41 +2,53 @@
 
 ![ScreenShot](/assets/images/05.png)
 
-This project focuses on implementing data warehousing and visualization components using AWS services. The solution includes Amazon Redshift for data warehousing and Amazon QuickSight for data visualization.
+Here, we'll focus on the warehousing and visualization components using AWS services. The solution includes Amazon S3 and Redshift for data warehousing, Amazon Glue and Athena for analysis and reporting, and Amazon QuickSight for data visualization.
 
 ## Steps in the Implementation
 
-### 1. Data Collection and Extraction
+### 1. Data Ingestion from Kinesis stream
+Steps have been previously implemented in the `01_order_history_functionality` folder.
 
-Data from various sources is collected and extracted. This could include data from databases, data lakes, or other external sources relevant to the project's requirements.
+We're simply connecting our Kinesis data stream to the Kinesis Firehose delivery stream.
 
-### 2. Data Transformation and Load into Redshift
+### 2. Data Collection and Storage 
 
-The collected data is transformed and loaded into Amazon Redshift, a fully managed data warehouse service. Redshift allows for efficient data storage and processing, optimizing query performance.
+Steps have been previously implemented in the `02_product_recommendations` folder.
 
-### 3. Data Modeling and Schema Design
+We're simply going to use Glue crawlers and Redshift with Spectrum to access the data.
 
-Data modeling and schema design are performed to structure the data appropriately within Redshift. This step involves defining tables, columns, and relationships to enable effective data querying.
+### 2. Data Modeling and Schema Design with Glue
 
-### 4. Data Analysis and Reporting
+Glue let's us perform crawls on our S3 files to generate schemas for a table. Here we can configure our column names and input types. This table is what we'll later use for Querying and analysis.
 
-Using SQL queries and business intelligence tools, data analysis and reporting are carried out to derive meaningful insights from the data stored in Redshift.
+![ScreenShot](/assets/images/Glue_table.png)
+
+### 3. Data Analysis and Reporting using Athena
+
+Athena was originally made to be used with Glue, and so it allows us to easily run SQL queries on the table we made in Glue. 
+
+![ScreenShot](/assets/images/Athena_small.png)
+![ScreenShot](/assets/images/Athena.png)
+
+### 3. Data Transformation and Load into Redshift
+
+Amazon recently introduction a new feature in Redshift called Spectrum, so now we don't actually need make a Redshift cluster because we are not storing petabyte-size information, and we already have data on S3. We can simply create a schema to connect Redshift to our stored data in S3 through the Glue Schema to make a database table. You probably want to make sure the right IAM policies are attached to your role. 
+
+![ScreenShot](/assets/images/Redshift_table.png)
+
+
+
 
 ### 5. Data Visualization with QuickSight
 
-Amazon QuickSight, a serverless data visualization service, is utilized to create interactive dashboards and visualizations based on the analyzed data. QuickSight makes it easy to gain insights through charts, graphs, and other visual elements.
+Amazon QuickSight is a serverless data visualization service that is used to create interactive dashboards and visualizations based on the analyzed data. QuickSight makes it easy to gain insights through charts, graphs, and other visual elements.
 
-## Benefits of the Implementation
+The most important steps in configuring Quicksight are ensuring your IAM role has the right policies to Read data, and to make sure both Quicksight and Redshift are in the same security group. Clusters run in VPC(Virtual Private Clouds) and so we'll need a secure connection to read that from it.
 
-- **Scalability:** AWS services like Redshift and QuickSight are designed to handle large volumes of data and user interactions, making the solution highly scalable.
+![ScreenShot](/assets/images/Quicksight_fields.png)
 
-- **Performance:** Redshift's columnar storage and parallel processing capabilities ensure fast query performance, enabling timely data analysis.
+![ScreenShot](/assets/images/Quicksight_viz.png)
 
-- **Cost-Effectiveness:** Pay-as-you-go pricing models for Redshift and QuickSight help optimize costs, as you only pay for the resources and usage.
-
-- **Ease of Use:** Redshift's compatibility with standard SQL and QuickSight's intuitive interface make it easy for users to interact with data and create visualizations.
-
-- **Real-Time Insights:** With QuickSight, users can access real-time visualizations, empowering them to make data-driven decisions more effectively.
 
 ## Prerequisites
 
@@ -46,24 +58,4 @@ Before setting up and running this implementation, ensure that you have:
 
 - Familiarity with SQL queries and data visualization concepts.
 
-## Setup Instructions
 
-1. Collect and extract data from various sources relevant to the project.
-
-2. Create an Amazon Redshift cluster and configure it for data storage and processing.
-
-3. Transform and load the collected data into Redshift using suitable ETL (Extract, Transform, Load) processes.
-
-4. Design the data model and schema within Redshift to structure the data for efficient querying.
-
-5. Perform data analysis and reporting using SQL queries on Redshift.
-
-6. Set up Amazon QuickSight to connect to the Redshift cluster and create interactive dashboards for data visualization.
-
-7. Share the QuickSight dashboards with relevant stakeholders for insights and decision-making.
-
-8. Monitor the system's performance and optimize the architecture as needed to ensure efficient data warehousing and visualization.
-
-## Conclusion
-
-The AWS implementation for data warehousing and visualization using Redshift and QuickSight provides an effective solution to store, process, and analyze data while creating interactive visualizations for insights. By following the setup instructions and understanding the benefits, you can deploy a scalable and cost-effective data solution that empowers data-driven decision-making within your organization.

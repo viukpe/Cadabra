@@ -1,34 +1,27 @@
 # Near Real-Time Log Analytics
 
-![ScreenShot](/assets/images/04.png)
+![ScreenShot](/assets/images/044.png)
 
-This project aims to develop a near real-time log analytics system using AWS services to gain immediate insights from log data. The solution leverages AWS Kinesis, Amazon EMR, and Amazon Athena to process and analyze log data in real-time.
+This project aims to develop a near real-time log analytics system using AWS services to gain immediate insights from log data. The solution leverages Kinesis firehose, and OpenSearch to process and analyze log data in near real-time.
+
+**Use Case:** We get a pre-configured notification that tells us there are currently extremely high traffic volumes on our Cadabra website. This could be an attack on our system and as such we'll want to act quickly. This implementation gives us the investigative tools to find out what is happening in real-time.
 
 ## Steps in the Implementation
 
-### 1. Data Collection with AWS Kinesis
+### 1. Data Ingestion from Kinesis stream
+Steps have been previously implemented in the `01_order_history_functionality` folder.
 
-The system collects log data from various sources, such as web servers, applications, or IoT devices, using Amazon Kinesis Data Streams. Kinesis enables the ingestion of large volumes of data in real-time, ensuring immediate availability for analysis.
+We're simply connecting our Kinesis data stream to the Kinesis Firehose delivery stream.
 
-### 2. Real-Time Data Processing with Kinesis
+### 2. Firehose Delivery Stream
 
-Amazon Kinesis Data Analytics is utilized to process the incoming log data in real-time. You can create SQL or Java-based applications to perform data transformations, aggregations, and filtering as needed.
+Be sure to configure lambda to do data transformation of the data coming into the data stream - log to json(there are lambda blueprints), increase lambda timeout to one minute. Enter OpenSearch service. Index rotation for one day. create backup bucket for bad error logs or all logs. now, setup kinesis agent on ec2, find and open kinesis agent.json file and configure endpoint and flows. Restart your kinesis agent, start log data
 
-### 3. Data Storage with Amazon S3
+### 3. Data Visualization with OpenSearch
 
-The processed log data is stored in Amazon S3 (Simple Storage Service) for durability and long-term storage. S3 provides scalable and cost-effective object storage for log data, making it easily accessible for further analysis.
+Amazon OpenSearch cluster to receive log data, create a domain(basically name)
 
-### 4. Batch Data Analysis with Amazon EMR
-
-Amazon EMR (Elastic MapReduce) is employed for batch data analysis on the log data stored in S3. EMR allows you to run big data processing frameworks like Apache Spark or Apache Hadoop to perform complex analysis and derive meaningful insights.
-
-### 5. Interactive Querying with Amazon Athena
-
-Amazon Athena provides an interactive query service that allows you to directly query and analyze log data stored in S3 using standard SQL queries. Athena's serverless nature eliminates the need for infrastructure management, providing fast and cost-effective data analysis.
-
-### 6. Data Visualization with Amazon QuickSight
-
-Amazon QuickSight can be used to create interactive and visual dashboards to present the analyzed log data. QuickSight makes it easy to generate insightful visualizations and share them with stakeholders for real-time monitoring and decision-making.
+click opensearch dashboard url link, view manage tab - index patterns(can use to look for log by day) and search for the name you stored your firehose stream as. Go to left menu and click discover
 
 ## Prerequisites
 
@@ -36,5 +29,5 @@ Before setting up and running this implementation, ensure that you have:
 
 - AWS account credentials with appropriate permissions to create and manage Kinesis data streams, Kinesis Data Analytics applications, EMR clusters, S3 buckets, and Athena queries.
 
-- Familiarity with SQL queries and big data processing frameworks like Apache Spark or Apache Hadoop.
+- Familiarity with SQL queries and big data processing framework - Apache Spark.
 
