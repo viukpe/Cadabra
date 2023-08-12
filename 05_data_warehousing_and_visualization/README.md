@@ -19,33 +19,35 @@ We're simply going to use Glue crawlers and Redshift with Spectrum to access the
 
 ### 2. Data Modeling and Schema Design with Glue
 
-Glue let's us perform crawls on our S3 files to generate schemas for a table. Here we can configure our column names and input types. This table is what we'll later use for Querying and analysis.
+Glue lets us perform crawls on our S3 files to get structure from data by generating a schema for a table. Here we can configure our column names and input types. This table is what we'll later use for Querying and analysis.
 
 ![ScreenShot](/assets/images/Glue_table.png)
 
 ### 3. Data Analysis and Reporting using Athena
 
-Athena was originally made to be used with Glue, and so it allows us to easily run SQL queries on the table we made in Glue. 
+Athena can be integrated with many AWS services, especially Glue, which works seamlessly. It will allow us to quickly run SQL queries on the table we made in Glue. 
 
 ![ScreenShot](/assets/images/Athena_small.png)
 ![ScreenShot](/assets/images/Athena.png)
 
 ### 3. Data Transformation and Load into Redshift
 
-Amazon recently introduction a new feature in Redshift called Spectrum, so now we don't actually need make a Redshift cluster because we are not storing petabyte-size information, and we already have data on S3. We can simply create a schema to connect Redshift to our stored data in S3 through the Glue Schema to make a database table. You probably want to make sure the right IAM policies are attached to your role. 
+Amazon recently introduced a new feature in Redshift called Spectrum, so now we don't need to make a Redshift cluster because we are not storing petabyte-size information, and we already have data on S3. To make a database table, we can create a schema to connect Redshift to our stored data in S3 through our Glue Schema. You should make sure the right IAM policies are attached to your role. 
 
 ![ScreenShot](/assets/images/Redshift_table.png)
 
+![ScreenShot](/assets/images/Redshift_fields.png)
 
 
 
 ### 5. Data Visualization with QuickSight
 
-Amazon QuickSight is a serverless data visualization service that is used to create interactive dashboards and visualizations based on the analyzed data. QuickSight makes it easy to gain insights through charts, graphs, and other visual elements.
+Amazon QuickSight is a serverless data visualization service that creates interactive dashboards and visualizations based on the analyzed data. QuickSight makes it easy to gain insights through charts, graphs, and other visual elements.
 
-The most important steps in configuring Quicksight are ensuring your IAM role has the right policies to Read data, and to make sure both Quicksight and Redshift are in the same security group. Clusters run in VPC(Virtual Private Clouds) and so we'll need a secure connection to read that from it.
+The most critical steps in configuring Quicksight are ensuring your IAM role has the right policies to Read data and ensuring both Quicksight and Redshift are in the same security group. Clusters run in VPC(Virtual Private Clouds), so we'll need a secure connection to read that from it.
 
 ![ScreenShot](/assets/images/Quicksight_fields.png)
+
 
 ![ScreenShot](/assets/images/Quicksight_viz.png)
 

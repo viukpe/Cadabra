@@ -13,14 +13,14 @@ We're simply connecting our Kinesis data stream to the Kinesis Firehose delivery
 
 ### 2. Real-time Analysis of Incoming Event Logs with Kinesis Analytics
 
-Kinesis Analytics helps you analyze and gain insights from real-time streaming data it allows us to process continous data streams using SQL-like queries. We'll set it to check for high number of logs file coming in per hour.
+Kinesis Analytics helps us analyze and gain insights from real-time streaming data. It allows us to process continuous data streams using SQL-like queries. We'll set it to check for a high number of log files per hour.
 
 ### 3. Data Processing and Trigger Configuration with Lambda
 
-AWS Lambda functions are utilized to process the incoming transaction data. The Lambda functions can aggregate, filter, or transform the data to extract the necessary information for calculating transaction rates.
+AWS Lambda functions are utilized to process the incoming transaction data. Lambda functions will aggregate, filter, and transform the data to extract the necessary information for calculating transaction rates. We'll also place a trigger here to call our SNS topic.
 
 ### 4. SNS Alarm Trigger and Action
-Simple Notification Service is a phone alert system; it's activated when triggered by the lambda function. The way it works is simple: A topic is created first; then a subscription is also created and set to alert me with an SMS text
+Simple Notification Service is a phone alert system; it's activated when triggered by the lambda function. It works simply: A topic is created first - a collective to hold related alerts; then, a subscription is created and set to alert me via an SMS text message.
 
 
 
@@ -30,4 +30,4 @@ Before setting up and running this implementation, ensure that you have:
 
 - AWS account credentials with appropriate permissions to create and manage Lambda functions, CloudWatch alarms, and other required services.
 
-- Understanding of AWS Lambda and CloudWatch services and their integration with other AWS services.
+- Understanding of AWS Lambda, Kinesis Analytics, and CloudWatch services and their integration with other AWS services.

@@ -2,9 +2,9 @@
 
 ![ScreenShot](/assets/images/044.png)
 
-This project aims to develop a near real-time log analytics system using AWS services to gain immediate insights from log data. The solution leverages Kinesis firehose, and OpenSearch to process and analyze log data in near real-time.
+This project aims to produce a near real-time log analytics system using AWS services to gain immediate insights from log data. The solution leverages Kinesis Firehose and OpenSearch to process and analyze log data in near real-time.
 
-**Use Case:** We get a pre-configured notification that tells us there are currently extremely high traffic volumes on our Cadabra website. This could be an attack on our system and as such we'll want to act quickly. This implementation gives us the investigative tools to find out what is happening in real-time.
+**Use Case:** We get a pre-configured notification that tells us there are currently extremely high traffic volumes on our Cadabra website. It could be an attack on our system, so we'll want to act quickly. This implementation gives us the investigative tools to discover what is happening in real time.
 
 ## Steps in the Implementation
 
@@ -15,19 +15,19 @@ We're simply connecting our Kinesis data stream to the Kinesis Firehose delivery
 
 ### 2. Firehose Delivery Stream
 
-Be sure to configure lambda to do data transformation of the data coming into the data stream - log to json(there are lambda blueprints), increase lambda timeout to one minute. Enter OpenSearch service. Index rotation for one day. create backup bucket for bad error logs or all logs. now, setup kinesis agent on ec2, find and open kinesis agent.json file and configure endpoint and flows. Restart your kinesis agent, start log data
+Be sure to configure the lambda function to transform data coming into Firehose - convert log to JSON (there are lambda blueprints), and increase lambda timeout to one minute. 
+
 
 ### 3. Data Visualization with OpenSearch
 
-Amazon OpenSearch cluster to receive log data, create a domain(basically name)
+In OpenSearch, you should partition the logs by day. After that, make a cluster to receive log data from the Kinesis Firehose.
 
-click opensearch dashboard url link, view manage tab - index patterns(can use to look for log by day) and search for the name you stored your firehose stream as. Go to left menu and click discover
 
 ## Prerequisites
 
 Before setting up and running this implementation, ensure that you have:
 
-- AWS account credentials with appropriate permissions to create and manage Kinesis data streams, Kinesis Data Analytics applications, EMR clusters, S3 buckets, and Athena queries.
+- AWS account credentials with appropriate permissions to create and manage Kinesis Firehose.
 
-- Familiarity with SQL queries and big data processing framework - Apache Spark.
+- Familiarity with SQL queries.
 
