@@ -27,7 +27,6 @@ Glue lets us perform crawls on our S3 files to get structure from data by genera
 
 Athena can be integrated with many AWS services, especially Glue, which works seamlessly. It will allow us to quickly run SQL queries on the table we made in Glue. 
 
-![ScreenShot](/assets/images/Athena_small.png)
 ![ScreenShot](/assets/images/Athena.png)
 
 ### 3. Data Transformation and Load into Redshift
@@ -36,8 +35,6 @@ Amazon recently introduced a new feature in Redshift called Spectrum, so now we 
 
 ![ScreenShot](/assets/images/Redshift_table.png)
 
-![ScreenShot](/assets/images/Redshift_fields.png)
-
 
 
 ### 5. Data Visualization with QuickSight
@@ -45,8 +42,6 @@ Amazon recently introduced a new feature in Redshift called Spectrum, so now we 
 Amazon QuickSight is a serverless data visualization service that creates interactive dashboards and visualizations based on the analyzed data. QuickSight makes it easy to gain insights through charts, graphs, and other visual elements.
 
 The most critical steps in configuring Quicksight are ensuring your IAM role has the right policies to Read data and ensuring both Quicksight and Redshift are in the same security group. Clusters run in VPC(Virtual Private Clouds), so we'll need a secure connection to read that from it.
-
-![ScreenShot](/assets/images/Quicksight_fields.png)
 
 
 ![ScreenShot](/assets/images/Quicksight_viz.png)
