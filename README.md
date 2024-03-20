@@ -2,9 +2,7 @@
 
 ![Cadabra Big Data System Project](/assets/images/Cadabra_image.png)
 
-Welcome to the Cadabra big data system project! This repository contains a collection of AWS cloud documentation that showcase the comprehensive implementations for Cadabra. Cadabra is the name we'll use for our mock e-commerce clothing store. These architectures have been carefully designed and built as part of my preparation for the AWS Certified Data Analytics Specialty Examination, following the excellent guidance provided by Stephan Maarek's preparation course on Udemy.
-
-https://www.udemy.com/course/aws-data-analytics/
+Welcome to the Cadabra big data system project! This repository contains a collection of AWS cloud documentation that showcase the comprehensive implementations for Cadabra. Cadabra is the name we'll use for our mock e-commerce clothing store. These architectures have been carefully designed and built as part of my preparation for the AWS Certified Data Analytics Specialty Examination.
 
 ![Full picture](/assets/images/All.png)
 
